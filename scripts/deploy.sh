@@ -13,7 +13,10 @@ hugo && {
     rsync -Pravtz --delete public/ blog:/var/www/mcastorillo.com/
 }
 
+git checkout master
+git merge draft
 git add -A
 git commit -m "AUTOMATED DEPLOY: synced blog on $(date)"
+git checkout draft
 echo -e "Done. Check updates at https://mcastorillo.com"
 
